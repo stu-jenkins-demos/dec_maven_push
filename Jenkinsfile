@@ -24,7 +24,7 @@ spec:
             steps {
                 withCredentials([usernamePassword(credentialsId: 'acr_login', passwordVariable: 'key', usernameVariable: 'application_id')]) {
                     container('maven') {
-                        sh 'mvn -version'
+                        sh 'docker login -u $application_id -p $key stusreg.azurecr.io'
                         sh 'mvn package'
                     }
                 }
