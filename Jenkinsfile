@@ -22,14 +22,12 @@ spec:
     stages {
         stage('Run maven build') {
             steps {
-              container('maven')
-                configFileProvider([configFile(fileId: '668c2e06-4ef5-4959-a613-91ef7644d46d', variable: 'MAVEN_SETTINGS_XML')]) {
-                    sh "mvn -s $MAVEN_SETTINGS_XML package"
+                container('maven'){
+                    configFileProvider([configFile(fileId: '668c2e06-4ef5-4959-a613-91ef7644d46d', variable: 'MAVEN_SETTINGS_XML')]) {
+                        sh "mvn -s $MAVEN_SETTINGS_XML package"
+                    }
                 }
-              }
-            }
-          }
-        
+            }    
         }
     }
 }
