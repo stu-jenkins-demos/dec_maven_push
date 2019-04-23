@@ -22,9 +22,11 @@ spec:
     stages {
         stage('Run maven build') {
             steps {
-                container('maven') {
-                    sh 'mvn -version'
-                    sh 'mvn package'
+                withCredentials([usernamePassword(credentialsId: 'acr_login', passwordVariable: 'key', usernameVariable: 'application_id')]) {
+                    container('maven') {
+                        sh 'mvn -version'
+                        sh 'mvn package'
+                    }
                 }
 
             }
