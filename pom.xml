@@ -13,7 +13,7 @@
     <repository>
       <id>central</id>
       <name>artifactory-artifactory-0-releases</name>
-      <url>http://51.145.47.194:80/artifactory/libs-release-local</url>
+      <url>http://51.145.47.194:80/artifactory/libs-snapshot-local</url>
     </repository>
   </distributionManagement>
   
